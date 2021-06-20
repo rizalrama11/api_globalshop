@@ -1,9 +1,9 @@
 <?php
     $userID = $_GET['userid'];
 
-    include'../config/functions.php';
+    include '../config/functions.php';
 
-    $rssql = "SELECT IFNULL (SUM(qty),0) jumlah, IFNULL(SUM(harga),0) totalHarga FROM flutter_shopping_cart WHERE userid = '$userID'";
+    $rssql = "SELECT IFNULL(SUM(qty),0) jumlah, IFNULL(SUM(harga),0) totalharga FROM flutter_shopping_cart WHERE userid = '$userID'";
 
     $sql = mysqli_query($con, $rssql);
 

@@ -2,13 +2,13 @@
 include '../config/functions.php';
 
 $username = $_POST['username'];
-$password = $_POST['password'];
-$namaTabel = $_POST['flutter_user'];
+$password = md5($_POST['password']);
+$namaTabel = 'flutter_user';
 header('Content-Type: text/xml');
 
-$rows = $db->get_results("SELECT * FROM $namaTabel WHERE username = '$username' AND password ='$password'");
+$rows = $db->get_results("SELECT * FROM $namaTabel WHERE username = '$username' AND password = '$password'");
 
-$jumrec  = $db->get_var("SELECT COUNT(*) FROM $namaTabel WHERE username ='$username' AND password ='$password'");
+$jumrec  = $db->get_var("SELECT COUNT(*) FROM $namaTabel WHERE username = '$username' AND password = '$password'");
 
 if($jumrec > 0)
 {

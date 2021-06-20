@@ -1,12 +1,12 @@
 <?php
 
-include '/..config/functions.php';
+include '../config/functions.php';
 $namaTabel = "flutter_shopping_cart";
 $namaTabelBrg = "flutter_barang";
 header('Content-Type: text/xml');
 
 $userID     = $_POST['userid'];
-$id_barang  =$_POST['id_barang'];
+$id_barang  = $_POST['id_barang'];
 
 if($id_barang != 0)
 {
@@ -21,7 +21,7 @@ if($id_barang != 0)
     {
         $sqlBrg = "SELECT harga FROM $namaTabelBrg WHERE id_barang = '$id_barang'";
         $rssqlBrg = mysqli_query($con, $sqlBrg);
-        while($b - mysqli_fetch_array($rssqlBrg)){
+        while($b = mysqli_fetch_array($rssqlBrg)){
             $hargaSatuan = $b['harga'];
         }
 
